@@ -1,10 +1,13 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
+
+import static junit.framework.TestCase.assertFalse;
+import static junit.framework.TestCase.assertNotNull;
 
 /**
  * @author sih
@@ -24,10 +27,11 @@ public class SentimentProcessorTest {
     @Test
     public void process() throws Exception {
 
-        List<String> lines = Files.readAllLines(story1Path);
+        Map<String,List<String>> results = processor.process(story1Path);
+        assertNotNull(results);
+        assertFalse(results.get(SentimentProcessor.GOOD).isEmpty());
+        assertFalse(results.get(SentimentProcessor.BAD).isEmpty());
+        assertFalse(results.get(SentimentProcessor.INDIFFERENT).isEmpty());
 
-        for (String line: lines) {
-            processor.newProcess(line);
-        }
     }
 }
