@@ -1,8 +1,10 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 /**
  * @author sih
@@ -21,6 +23,11 @@ public class SentimentProcessorTest {
 
     @Test
     public void process() throws Exception {
-        processor.process(story1Path);
+
+        List<String> lines = Files.readAllLines(story1Path);
+
+        for (String line: lines) {
+            processor.newProcess(line);
+        }
     }
 }
