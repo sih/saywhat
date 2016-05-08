@@ -6,6 +6,7 @@ import java.nio.file.Path;
 
 /**
  * @author sih
+ * TODO https://blog.openshift.com/day-20-stanford-corenlp-performing-sentiment-analysis-of-twitter-using-java/
  */
 public class SentimentProcessor {
 
