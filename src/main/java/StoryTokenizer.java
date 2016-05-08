@@ -48,6 +48,7 @@ class StoryTokenizer {
         tokenizerProps.setProperty("annotators", "tokenize, ssplit");
         tokenizerProps.setProperty(StanfordCoreNLP.NEWLINE_SPLITTER_PROPERTY, "true");
         return tokenizerProps;
+
     }
 
 }
